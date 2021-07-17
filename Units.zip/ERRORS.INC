@@ -1,0 +1,127 @@
+{Function which returns IO Errors messages}
+
+function errormsg(err :DWord) :string;
+begin
+  case err of
+    0  : result := 'O.K.';
+
+    1  : result := 'Invalid function number';
+    2  : result := 'File not found';
+    3  : result := 'Path not found';
+    4  : result := 'Too many open files (no handles left)';
+    5  : result := 'Access denied (file was opened Read Only)';
+    6  : result := 'Invalid handle';
+    7  : result := 'Memory control blocks destroyed';
+    8  : result := 'Insufficient memory';
+    9  : result := 'Invalid memory block address';
+   10  : result := 'Invalid environment';
+   11  : result := 'Invalid format';
+   12  : result := 'Invalid access code';
+   13  : result := 'Invalid data';
+   15  : result := 'Invalid drive was specified';
+   16  : result := 'Attempt to remove current directory';
+   17  : result := 'Not same device';
+   18  : result := 'No more files';
+   19  : result := 'Attempt to write on write-protected diskette';
+   20  : result := 'Unknown unit';
+   21  : result := 'Drive not ready';
+   22  : result := 'Unknown command';
+   23  : result := 'Data error (CRC)';
+   24  : result := 'Bad request structure length';
+   25  : result := 'Seek error';
+   26  : result := 'Unknown media type';
+   27  : result := 'Sector not found';
+   28  : result := 'Printer out of paper';
+   29  : result := 'Write fault';
+   30  : result := 'Read fault';
+   31  : result := 'General failure';
+   32  : result := 'Sharing violation';
+   33  : result := 'Lock violation';
+   34  : result := 'Invalid disk change';
+   35  : result := 'FCB unavailable';
+   36  : result := 'Sharing buffer overflow';
+   50  : result := 'Network request not supported';
+   51  : result := 'Remote computer not listening';
+   52  : result := 'Duplicate name on network';
+   53  : result := 'Network name not found';
+   54  : result := 'Network busy';
+   55  : result := 'Network device no longer exists';
+   56  : result := 'Net BIOS command limit exceeded';
+   57  : result := 'Network adapter hardware error';
+   58  : result := 'Incorrect response from network';
+   59  : result := 'Unexpected network error';
+   60  : result := 'Incompatible remote adapter';
+   61  : result := 'Print queue full';
+   62  : result := 'Not enough space for print file';
+   63  : result := 'Print file was deleted';
+   65  : result := 'Access denied';
+   66  : result := 'Network device type incorrect';
+   67  : result := 'Network name not found';
+   68  : result := 'Network name limit exceeded';
+   69  : result := 'Net BIOS session limit exceeded';
+   70  : result := 'Temporarily paused';
+   71  : result := 'Network request not accepted';
+   72  : result := 'Print or disk redirection is paused';
+   80  : result := 'File exists';
+   82  : result := 'Cannot make directory entry';
+   83  : result := 'Fail on INT 24';
+   84  : result := 'Too many redirections';
+   85  : result := 'Duplicate redirection';
+   86  : result := 'Invalid password';
+   87  : result := 'Invalid parameter';
+   88  : result := 'Network device fault';
+
+   100 : result := 'Disk read error';
+   101 : result := 'Disk write error';
+   102 : result := 'File not assigned';
+   103 : result := 'File not open';
+   104 : result := 'File not open for input';
+   105 : result := 'File not open for output';
+   106 : result := 'Invalid numeric format';
+
+   150 : result := 'Disk is write-protected';
+   151 : result := 'Bad drive request struct length';
+   152 : result := 'Drive not ready';
+   154 : result := 'CRC error in data';
+   156 : result := 'Disk seek error';
+   157 : result := 'Unknown media type';
+   158 : result := 'Sector Not Found';
+   159 : result := 'Printer out of paper';
+   160 : result := 'Device write fault';
+   161 : result := 'Device read fault';
+   162 : result := 'Hardware failure';
+
+   200 : result := 'Division by zero';
+   201 : result := 'Range check error';
+   202 : result := 'Stack overflow error';
+   203 : result := 'Heap overflow error';
+   204 : result := 'Invalid pointer operation';
+   205 : result := 'Floating point overflow';
+   206 : result := 'Floating point underflow';
+   207 : result := 'Invalid floating point operation';
+   208 : result := 'Overlay manager not installed';
+   209 : result := 'Overlay file read error';
+   210 : result := 'Object not initialized';
+   211 : result := 'Call to abstract method';
+   212 : result := 'Stream registration error';
+   213 : result := 'Collection index out of range';
+   214 : result := 'Collection overflow error';
+   215 : result := 'Arithmetic overflow error';
+   216 : result := 'General Protection fault';
+
+   {ZFS ERRORS}
+   err_Dispose  : result := 'Unable to dipose pointer (it''s NIL)';
+   err_New      : result := 'Error allocating a new pointer (Not enough mem?)';
+   err_Seeking  : result := 'Error seeking a packed file : Out of boundaries';
+   err_LocalHdr : result := 'Missing or invalid local file header in ZIP file';
+   err_LongName : result := 'Error reading zip local file header (too long file name)';
+   err_Write    : result := 'Write error while uncompressing';
+   err_Read     : result := 'Read error while uncompressing';
+   err_ZipFile  : result := 'Error in ZIP file';
+   err_Method   : result := 'Compression method not supported';
+   err_WrongOMZ : result := 'Wrong seeking optimization file signature (OMZ)';
+   err_ResetBug : result := 'The ZFS reset function for typed files have a bug (see docs)';
+
+   else  result := 'UNDEFINED ERROR';
+  end;
+end;
